@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FeatureFlagExample")]
+[assembly: AssemblyTitle("FeatureFlagExample.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("FeatureFlagExample")]
+[assembly: AssemblyProduct("FeatureFlagExample.Tests")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9a045ac9-9730-411c-8d3a-deef7f8720d6")]
+[assembly: Guid("2fe8c86f-9d6b-4346-89be-ea6730e0901d")]
 
 // Version information for an assembly consists of the following four values:
 //
