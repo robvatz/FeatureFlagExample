@@ -4,24 +4,40 @@ namespace FeatureFlagExample.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IFeatureStatuses _ifs;
+
+        public HomeController() : this(new FeatureStatuses()) {}
+
+        public HomeController(IFeatureStatuses ifs)
+        {
+            _ifs = ifs;
+        }
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
+            _ifs.CheckFeatureFlags(ViewBag);
+            ViewBag.Message = "";
             return View();
         }
 
-        public ActionResult About()
+        public ViewResult About()
         {
-            ViewBag.Message = "Your app description page.";
-
+            _ifs.CheckFeatureFlags(ViewBag);
+            ViewBag.Message = "";
             return View();
         }
 
-        public ActionResult Contact()
+        public ViewResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            _ifs.CheckFeatureFlags(ViewBag);
+            ViewBag.Message = "";
+            return View();
+        }
 
+        public ViewResult NewPage()
+        {
+            _ifs.CheckFeatureFlags(ViewBag);
+            ViewBag.Message = "";
             return View();
         }
     }
