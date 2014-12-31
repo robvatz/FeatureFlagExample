@@ -16,42 +16,43 @@ namespace FeatureFlagExample.Controllers
 
         public ActionResult Index()
         {
-            _ifs.CheckFeatureFlags();
-            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
+            SetViewFeatures();
             ViewBag.Message = "";
             return View();
         }
 
         public ViewResult About()
         {
-            _ifs.CheckFeatureFlags();
-            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
+            SetViewFeatures();
             ViewBag.Message = "";
             return View();
         }
 
         public ViewResult Contact()
         {
-            _ifs.CheckFeatureFlags();
-            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
+            SetViewFeatures();
             ViewBag.Message = "";
             return View();
         }
 
         public ViewResult NewPage()
         {
-            _ifs.CheckFeatureFlags();
-            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
+            SetViewFeatures();
             ViewBag.Message = "";
             return View();
         }
 
         public ActionResult ThrowAnException()
         {
-            _ifs.CheckFeatureFlags();
-            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
+            SetViewFeatures();
             // TODO: add graceful recovery from exceptions to project
             throw new NotImplementedException("Any exception will do here");
+        }
+
+        private void SetViewFeatures()
+        {
+            _ifs.CheckFeatureFlags();
+            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
         }
     }
 }
