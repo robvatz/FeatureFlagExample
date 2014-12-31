@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace FeatureFlagExample.Controllers
 {
@@ -43,6 +44,14 @@ namespace FeatureFlagExample.Controllers
             ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
             ViewBag.Message = "";
             return View();
+        }
+
+        public ActionResult ThrowAnException()
+        {
+            _ifs.CheckFeatureFlags();
+            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
+            // TODO: add graceful recovery from exceptions to project
+            throw new NotImplementedException("Any exception will do here");
         }
     }
 }

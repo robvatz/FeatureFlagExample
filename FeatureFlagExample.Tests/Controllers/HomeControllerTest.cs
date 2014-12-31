@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using FeatureFlagExample.Controllers;
 using NUnit.Framework;
 
@@ -123,6 +124,14 @@ namespace FeatureFlagExample.Tests.Controllers
             var result2 = (ViewResult)result;
             Assert.IsEmpty(result2.ViewBag.Message, "message");
             Assert.AreEqual(false, result2.ViewBag.ExtraMenuFeature, "extra menu feature flag");
+        }
+
+        [Test]
+        public void ThrowAnException_ShouldThrowAnException()
+        {
+            var controller = new HomeController();
+
+            Assert.Throws<NotImplementedException>(() => controller.ThrowAnException());
         }
     }
 }
