@@ -15,28 +15,32 @@ namespace FeatureFlagExample.Controllers
 
         public ActionResult Index()
         {
-            _ifs.CheckFeatureFlags(ViewBag);
+            _ifs.CheckFeatureFlags();
+            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
             ViewBag.Message = "";
             return View();
         }
 
         public ViewResult About()
         {
-            _ifs.CheckFeatureFlags(ViewBag);
+            _ifs.CheckFeatureFlags();
+            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
             ViewBag.Message = "";
             return View();
         }
 
         public ViewResult Contact()
         {
-            _ifs.CheckFeatureFlags(ViewBag);
+            _ifs.CheckFeatureFlags();
+            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
             ViewBag.Message = "";
             return View();
         }
 
         public ViewResult NewPage()
         {
-            _ifs.CheckFeatureFlags(ViewBag);
+            _ifs.CheckFeatureFlags();
+            ViewBag.ExtraMenuFeature = _ifs.ShowNewMenu;
             ViewBag.Message = "";
             return View();
         }

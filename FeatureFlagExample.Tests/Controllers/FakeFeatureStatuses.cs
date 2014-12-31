@@ -4,11 +4,10 @@ namespace FeatureFlagExample.Tests.Controllers
 {
     public class FakeFeatureStatuses : IFeatureStatuses
     {
-        public void CheckFeatureFlags(dynamic viewBag)
-        {
-            viewBag.ExtraMenuFeature = ExtraMenuFeature;
-        }
+        public bool ShowNewMenu { get; set; }
 
-        public string ExtraMenuFeature;
+        public void CheckFeatureFlags()
+        {
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace FeatureFlagExample.Tests.Controllers
         public void Index()
         {
             // Arrange
-            _menuSetting.ExtraMenuFeature = "N";
+            _menuSetting.ShowNewMenu = false;
             var controller = new HomeController(_menuSetting);
 
             // Act
@@ -36,13 +36,14 @@ namespace FeatureFlagExample.Tests.Controllers
             Assert.IsInstanceOf<ViewResult>(result);
             var result2 = (ViewResult)result;
             Assert.IsEmpty(result2.ViewBag.Message, "message");
+            Assert.AreEqual(false, result2.ViewBag.ExtraMenuFeature, "extra menu feature flag");
         }
 
         [Test]
         public void About()
         {
             // Arrange
-            _menuSetting.ExtraMenuFeature = "N";
+            _menuSetting.ShowNewMenu = false;
             var controller = new HomeController(_menuSetting);
 
             // Act
@@ -52,13 +53,14 @@ namespace FeatureFlagExample.Tests.Controllers
             Assert.That(result, Is.Not.Null);
             Assert.IsInstanceOf<ViewResult>(result);
             Assert.IsEmpty(result.ViewBag.Message, "message");
+            Assert.AreEqual(false, result.ViewBag.ExtraMenuFeature, "extra menu feature flag");
         }
 
         [Test]
         public void Contact()
         {
             // Arrange
-            _menuSetting.ExtraMenuFeature = "N";
+            _menuSetting.ShowNewMenu = false;
             var controller = new HomeController(_menuSetting);
 
             // Act
@@ -68,13 +70,14 @@ namespace FeatureFlagExample.Tests.Controllers
             Assert.That(result, Is.Not.Null);
             Assert.IsInstanceOf<ViewResult>(result);
             Assert.IsEmpty(result.ViewBag.Message, "message");
+            Assert.AreEqual(false, result.ViewBag.ExtraMenuFeature, "extra menu feature flag");
         }
 
         [Test]
         public void IndexWithNewPage()
         {
             // Arrange
-            _menuSetting.ExtraMenuFeature = "Y";
+            _menuSetting.ShowNewMenu = true;
             var controller = new HomeController(_menuSetting);
 
             // Act
@@ -85,13 +88,14 @@ namespace FeatureFlagExample.Tests.Controllers
             Assert.IsInstanceOf<ViewResult>(result);
             var result2 = (ViewResult)result;
             Assert.IsEmpty(result2.ViewBag.Message, "message");
+            Assert.AreEqual(true, result2.ViewBag.ExtraMenuFeature, "extra menu feature flag");
         }
 
         [Test]
         public void NewPage()
         {
             // Arrange
-            _menuSetting.ExtraMenuFeature = "Y";
+            _menuSetting.ShowNewMenu = true;
             var controller = new HomeController(_menuSetting);
 
             // Act
@@ -101,6 +105,7 @@ namespace FeatureFlagExample.Tests.Controllers
             Assert.That(result, Is.Not.Null);
             Assert.IsInstanceOf<ViewResult>(result);
             Assert.IsEmpty(result.ViewBag.Message, "message");
+            Assert.AreEqual(true, result.ViewBag.ExtraMenuFeature, "extra menu feature flag");
         }
 
         [Test]
@@ -117,6 +122,7 @@ namespace FeatureFlagExample.Tests.Controllers
             Assert.IsInstanceOf<ViewResult>(result);
             var result2 = (ViewResult)result;
             Assert.IsEmpty(result2.ViewBag.Message, "message");
+            Assert.AreEqual(false, result2.ViewBag.ExtraMenuFeature, "extra menu feature flag");
         }
     }
 }

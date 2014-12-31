@@ -8,6 +8,8 @@
         /// <summary>
         /// Set ViewBag values to indicate which features are available.
         /// </summary>
-        void CheckFeatureFlags(dynamic viewBag);
+        void CheckFeatureFlags();
+
+        bool ShowNewMenu { get; }
     }
 }
